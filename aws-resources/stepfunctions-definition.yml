@@ -1,0 +1,28 @@
+name: Express-Workflow-Demo
+type: EXPRESS
+definition:
+  Comment: 'State Machine - Express Workflow Demo'
+  StartAt: 'Parse'
+  States:
+    Parse:
+      Type: Task
+      Resource:
+        Fn::GetAtt: [parse, Arn]
+      Next: 'Process'
+    Process:
+      Type: Task
+      Resource:
+        Fn::GetAtt: [process, Arn]
+      Next: 'Store'
+    Store:
+      Type: Task
+      Resource:
+        Fn::GetAtt: [store, Arn]
+      End: true
+
+loggingConfig:
+  level: ALL
+  includeExecutionData: true
+  destinations:
+    - Fn::GetAtt: [DemoStepFunction, Arn]
+

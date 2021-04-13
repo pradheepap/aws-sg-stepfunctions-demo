@@ -1,0 +1,6 @@
+Resources:
+  DemoStepFunction:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: 'Express-Workflow-Demo-Logs'
+      RetentionInDays: 14
