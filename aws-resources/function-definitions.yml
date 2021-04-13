@@ -1,0 +1,11 @@
+parse:
+  name: step-fn-parser
+  handler: src/functions/parse.handler
+
+process:
+  name: step-fn-processor
+  handler: src/functions/process.handler
+
+store:
+  name: step-fn-storage
+  handler: src/functions/store.handler
