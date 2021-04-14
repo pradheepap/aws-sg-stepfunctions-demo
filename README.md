@@ -6,3 +6,6 @@ sls invoke local -f store
 sls invoke  -f parse
 sls invoke  -f process
 sls invoke  -f store
+
+
+sls print

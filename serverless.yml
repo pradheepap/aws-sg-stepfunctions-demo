@@ -4,14 +4,15 @@ provider:
   runtime: nodejs12.x
   region: ap-southeast-1
 
-
 functions:
     - ${file(./aws-resources/function-definitions.yml)}
 stepFunctions:
   validate: true
   stateMachines:
     ExpressWorkflowDemo:
-      ${file(./aws-resources/stepfunctions-definition.yml)}
+      ${file(./aws-resources/express-step-functions-definition.yml)}
+    # StandardWorkflowDemo:
+    #   ${file(./aws-resources/standard-step-functions-definition.yml)}
 
 resources:
   - ${file(./aws-resources/aws-cloudwatch.yml)}
@@ -19,4 +20,3 @@ resources:
 plugins:
   - serverless-step-functions
   - serverless-pseudo-parameters
-

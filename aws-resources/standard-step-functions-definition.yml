@@ -1,0 +1,26 @@
+name: Standard-Workflow-Demo
+definition:
+  Comment: 'State Machine - Standard Workflow Demo'
+  StartAt: 'Parse'
+  States:
+    Parse:
+      Type: Task
+      Resource:
+        Fn::GetAtt: [parse, Arn]
+      Next: 'Process'
+    Process:
+      Type: Task
+      Resource:
+        Fn::GetAtt: [process, Arn]
+      Next: 'Store'
+    Store:
+      Type: Task
+      Resource:
+        Fn::GetAtt: [store, Arn]
+      End: true
+
+loggingConfig:
+  level: ALL
+  includeExecutionData: true
+  destinations:
+    - Fn::GetAtt: [DemoStepFunctionStandard, Arn]
