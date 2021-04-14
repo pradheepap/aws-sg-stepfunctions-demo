@@ -25,4 +25,3 @@ loggingConfig:
   includeExecutionData: true
   destinations:
     - Fn::GetAtt: [DemoStepFunction, Arn]
-
